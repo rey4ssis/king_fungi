@@ -1,0 +1,22 @@
+body{
+  background: #1c1c1c;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  
+}
+header{
+  background-image: url('../img/topo.png'); /* Caminho para a imagem de fundo */
+  background-size: cover; /* Ajusta o tamanho da imagem para cobrir o container */
+  background-position: center; /* Centraliza a imagem no container */
+  background-repeat: no-repeat; /* Impede a repetição da imagem de fundo */
+  background-position-y: center; /* Centraliza a imagem no container */
+  color: #343a40; /* Cor do texto */
+    
+  text-align: center; /* Alinhamento do texto */
+}
+#camp_file{
+  display: none;
+}
+.input{
+  width:50%;
+}
