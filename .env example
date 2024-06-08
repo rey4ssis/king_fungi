@@ -1,0 +1,12 @@
+BROKER_URL = 'amqp://localhost//'
+CELERY_RESULT_BACKEND = 'rpc://'
+DIR_CENT = ''
+
+#Autentição e-mail
+EMAIL_ADDRESS = ''
+EMAIL_PASSWORD = ''
+
+
+
+#Download genoma 
+EMAIL_ENTREZ = ''

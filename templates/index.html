@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KingFungi - Análise de Genoma</title>
+  <!-- Incluir os links para os arquivos CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href='{{ url_for('static', filename='css/style.css')}}'>
+
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header class="text-white text-center py-4" >
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-2">
+        <img src="{{ url_for('static', filename='img/logoW.png')}}" alt="logo" width="100">
+      </div>
+      <div class="col-10">
+        <h1>KingFungi</h1>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<div class="container mt-4">
+<div class="row">
+  <!-- Painel de Status -->
+  <div class="col-md-4">
+      <h4>Status do Processo</h4>
+      <ul class="list-group">
+        <li class="text-dark list-group-item"><i class="fas fa-dna"></i> Solicitar Análise de Genoma</li>
+        <li class="list-group-item text-dark"><i class="fas fa-cog fa-spin"></i> Análise em Processamento</li>
+        <li class="list-group-item text-dark"><i class="fas fa-check-circle"></i> Análise Concluída</li>
+      </ul>
+      <p>G2BC - Grupo de Pesquisa em Bioinformática e Biologia Computacional</p>
+
+    </div>
+    
+  <!-- Formulário de Submissão -->
+  <div class="col-md-8">
+    <h4>Submeter Sequência de Dados Genéticos</h4>
+      <!-- Botões de rádio para escolher entre Texto e Arquivo -->
+  <input type="radio" id="opcaoTexto" name="escolha" value="texto" checked>
+  <label for="opcaoArquivo">Submeter via Genbank</label>
+  <label for="opcaoTexto"></label>
+
+  <input type="radio" id="opcaoArquivo" name="escolha" value="arquivo">
+  <label for="opcaoArquivo">Submeter via Arquivo</label>
+
+    <form method="POST" enctype="multipart/form-data">
+      <div class="form-group" id="camp_sequenc">
+        <label for="genomicData">Baixar via Nome ou RefSeq </label>
+        <input type="text" class="form-control input" placeholder="Digite o RefSeq" name='ref_busca' aria-label="Username" aria-describedby="button-addon2">
+      </div>
+      <div class="form-group" id="camp_file">
+        <label for="genomicData">Selecione um arquivo fasta:</label>
+        <input  type='file' class="form-control" id="genomicData" rows="5" name='file_sequence'>
+      </div>
+      <div class="form-group email">
+        <label for="genomicData">Insira seu nome completo para envio da análise</label>
+        <span></span>
+        <input type="text" class="form-control" placeholder="Nome completo"  name="name_sequence" id="name_sequence"  autocomplete="on" required>
+        <label for="genomicData">E-mail para envio da análise</label>
+        <input type="email" class="form-control" placeholder="E-mail"  name="email_sequence" id="email_sequence"  autocomplete="on" required>
+        
+      </div>
+      <button type="submit" class="btn btn-primary float-right" value='Enviar'>ENVIAR</button>
+    </form>
+    <div id="popup" style="display: none;">
+      <p>Arquivo enviado com sucesso e removido da pasta uploads!</p>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+// Alterna entre os campos de Texto e Arquivo com base na escolha do usuário
+const opcaoTexto = document.getElementById("opcaoTexto");
+const opcaoArquivo = document.getElementById("opcaoArquivo");
+const campoTexto = document.getElementById("camp_sequenc");
+const campoArquivo = document.getElementById("camp_file");
+
+opcaoTexto.addEventListener("change", () => {
+    campoTexto.style.display = "block";
+    campoArquivo.style.display = "none";
+});
+
+opcaoArquivo.addEventListener("change", () => {
+    campoTexto.style.display = "none";
+    campoArquivo.style.display = "block";
+});
+</script>
+
+<script>
+  function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      window.location.href = '/'; // Redireciona para a página inicial
+  }
+
+  window.onload = function() {
+      var successParam = new URLSearchParams(window.location.search).get('success');
+      if (successParam === 'true') {
+          document.getElementById('popup').style.display = 'block';
+      }
+  }
+</script>
+
+<!-- Incluir os scripts JavaScript do Bootstrap -->
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
