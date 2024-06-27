@@ -3,7 +3,7 @@
  <img width=200px height=200px src="static/img/logoW.png" alt="Bot logo"></a>
 </p>
 
-<h3 align="center"> 🍄 Aplicação WEB: <i>KingFungi </i>🍄</h3>
+<h3 align="center"> 🍄‍🟫 Aplicação WEB: <i>KingFungi </i>🍄‍🟫 </h3>
 
 <div align="center">
 
