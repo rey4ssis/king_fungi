@@ -8,7 +8,7 @@
 <div align="center">
 
 ![Badge](https://img.shields.io/static/v1?label=status&message=ativo&color=green&style=for-the-badge&logo=status)
-![Badge](https://img.shields.io/static/v1?label=Python&message=latest&color=blue&style=for-the-badge&logo=python)
+![Badge](https://img.shields.io/static/v1?label=Python&message=3.10.12&color=blue&style=for-the-badge&logo=python)
 ![Badge](https://img.shields.io/static/v1?label=Celery&message=latest&color=3486&style=for-the-badge&logo=celery)
 ![Badge](https://img.shields.io/static/v1?label=Rabbit&message=latest&color=f60&style=for-the-badge&logo=rabbitmq)
 ![Badge](https://img.shields.io/static/v1?label=Docker&message=latest&color=0E76BD&style=for-the-badge&logo=docker)
